@@ -45,9 +45,17 @@ function App() {
   return (
     <div className="App">
       <Header className="App-header" title="Groceries List"/>
-      <AddItem newItem={newItem} setNewItem={setNewItem} handleSubmit={handleSubmit}/>
-      <SearchItem search={search} setSearch={setSearch}/>
-      <Content items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLocaleLowerCase()))} handleCheck={handleCheck} handleDelete={handleDelete}/>
+      <AddItem 
+        newItem={newItem} 
+        setNewItem={setNewItem} 
+        handleSubmit={handleSubmit}/>
+      <SearchItem 
+        search={search} 
+        setSearch={setSearch}/>
+      <Content 
+        items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLocaleLowerCase()))} 
+        handleCheck={handleCheck} 
+        handleDelete={handleDelete}/>
       <Footer length={items.length} />
     </div>
   );
