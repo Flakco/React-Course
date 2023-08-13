@@ -7,19 +7,8 @@ const AddItem = ({newItem, setNewItem, handleSubmit}) => {
   return (
     <form className="addForm" onSubmit={handleSubmit}>
             <label htmlFor="add">Add Item</label>
-            <input 
-              autoFocus 
-              id="addItem" 
-              type="text" 
-              placeholder="Add Item" 
-              required 
-              value={newItem}
-              onChange={(e) => setNewItem(e.target.value)} 
-              ref={inputRef}/>
-            <button 
-              type="submit" 
-              aria-label="Add Item" 
-              onClick={() => inputRef.current.focus()}><FaPlus/></button>
+            <input autoFocus id="addItem" type="text" placeholder="Add Item" required value={newItem}onChange={(e) => setNewItem(e.target.value)} ref={inputRef}/>
+            <button type="submit" aria-label="Add Item" onClick={() => inputRef.current.focus()}><FaPlus/></button>
     </form>
   )
 }

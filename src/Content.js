@@ -30,10 +30,7 @@ const Content = ({items, handleCheck, handleDelete}) => {
         <button onClick={() => setCount(count - 1)}>-1</button>
         <button onClick={() => handleClick2(handleNameChange())}>Click!</button>
         {items.length ? (
-          <ItemList 
-            items={items} 
-            handleCheck={handleCheck} 
-            handleDelete={handleDelete}/> 
+          <ItemList items={items} handleCheck={handleCheck} handleDelete={handleDelete}/> 
         ) : (<p style={{ marginTop: "2rem" }}>Your list is empty.</p>)}
         </> 
     </main>
