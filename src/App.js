@@ -11,6 +11,8 @@ import Input from "./Input";
 function App() {
   const [colorValue, setColorValue] = useState("")
   const [hexValue, setHexValue] = useState("")
+  const [isDarkText, setIsDarkText] =  useState(true)
+
   /*const [items, setItems] = useState(JSON.parse(localStorage.getItem ('shoppinglist')));*/
   const [items, setItems] = useState([
     {
@@ -66,7 +68,7 @@ function App() {
   return (
     <div className="App">
       <Header className="App-header" title="Groceries List"/>
-      <Square colorValue={colorValue} hexValue={hexValue}/>
+      <Square colorValue={colorValue} hexValue={hexValue} isDarkText={isDarkText}/>
       <Input colorValue={colorValue} setColorValue={setColorValue} setHexValue={setHexValue}/>
       <AddItem newItem={newItem} setNewItem={setNewItem} handleSubmit={handleSubmit}/>
       <SearchItem search={search} setSearch={setSearch}/>
