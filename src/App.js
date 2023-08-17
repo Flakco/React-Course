@@ -69,7 +69,7 @@ function App() {
     <div className="App">
       <Header className="App-header" title="Groceries List"/>
       <Square colorValue={colorValue} hexValue={hexValue} isDarkText={isDarkText}/>
-      <Input colorValue={colorValue} setColorValue={setColorValue} setHexValue={setHexValue}/>
+      <Input colorValue={colorValue} setColorValue={setColorValue} setHexValue={setHexValue} isDarkText={isDarkText} setIsDarkText={setIsDarkText}/>
       <AddItem newItem={newItem} setNewItem={setNewItem} handleSubmit={handleSubmit}/>
       <SearchItem search={search} setSearch={setSearch}/>
       <Content items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))} handleCheck={handleCheck} handleDelete={handleDelete}/>
