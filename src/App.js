@@ -5,9 +5,13 @@ import Content from './Content';
 import Footer from './Footer';
 import AddItem from "./AddItem";
 import SearchItem from "./SearchItem";
+import Square from "./Square";
+import Input from "./Input";
 
 function App() {
-  /* const [items, setItems] = useState(JSON.parse(localStorage.getItem ('shoppinglist'))); */
+  const [colorValue, setColorValue] = useState("")
+  const [hexValue, setHexValue] = useState("")
+  /*const [items, setItems] = useState(JSON.parse(localStorage.getItem ('shoppinglist')));*/
   const [items, setItems] = useState([
     {
         id: 1,
@@ -62,6 +66,8 @@ function App() {
   return (
     <div className="App">
       <Header className="App-header" title="Groceries List"/>
+      <Square colorValue={colorValue} hexValue={hexValue}/>
+      <Input colorValue={colorValue} setColorValue={setColorValue} setHexValue={setHexValue}/>
       <AddItem newItem={newItem} setNewItem={setNewItem} handleSubmit={handleSubmit}/>
       <SearchItem search={search} setSearch={setSearch}/>
       <Content items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))} handleCheck={handleCheck} handleDelete={handleDelete}/>
