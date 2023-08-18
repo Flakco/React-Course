@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import './App.css';
 import Header from './Header';
 import Content from './Content';
@@ -13,8 +13,10 @@ function App() {
   const [hexValue, setHexValue] = useState("")
   const [isDarkText, setIsDarkText] =  useState(true)
 
-  /*const [items, setItems] = useState(JSON.parse(localStorage.getItem ('shoppinglist')));*/
-  const [items, setItems] = useState([
+  // if localstorage is empty it wont brake
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem('shoppinglist')) || []);
+  
+  /*const [items, setItems] = useState([
     {
         id: 1,
         checked: true,
@@ -30,7 +32,11 @@ function App() {
         checked: false,
         item: "Item 3"
     }
-  ])
+  ])*/
+
+  useEffect(() => {
+    localStorage.setItem('shoppinglist', JSON.stringify(items));
+  }, [items])
 
   const [newItem, setNewItem] = useState("")
   const [search, setSearch] = useState("")
@@ -72,7 +78,11 @@ function App() {
       <Input colorValue={colorValue} setColorValue={setColorValue} setHexValue={setHexValue} isDarkText={isDarkText} setIsDarkText={setIsDarkText}/>
       <AddItem newItem={newItem} setNewItem={setNewItem} handleSubmit={handleSubmit}/>
       <SearchItem search={search} setSearch={setSearch}/>
-      <Content items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))} handleCheck={handleCheck} handleDelete={handleDelete}/>
+      <Content 
+        items={items.filter(item => ((item.item).toLowerCase()).includes(search.toLowerCase()))} 
+        handleCheck={handleCheck} 
+        handleDelete={handleDelete}
+      />
       <Footer length={items.length}/>
     </div>
   );
