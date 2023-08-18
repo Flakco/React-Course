@@ -9,12 +9,13 @@ import Square from "./Square";
 import Input from "./Input";
 
 function App() {
+  const API_URL = "http://localhost:3500/items"
   const [colorValue, setColorValue] = useState("")
   const [hexValue, setHexValue] = useState("")
   const [isDarkText, setIsDarkText] =  useState(true)
 
   // if localstorage is empty it wont brake
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem('shoppinglist')) || []);
+  const [items, setItems] = useState([]);
   
   /*const [items, setItems] = useState([
     {
@@ -35,8 +36,19 @@ function App() {
   ])*/
 
   useEffect(() => {
-    localStorage.setItem('shoppinglist', JSON.stringify(items));
-  }, [items])
+    const fetchItems = async () => {
+      try{
+        const response = await fetch(API_URL)
+        const listItems = await response.json()
+        console.log(listItems)
+        setItems(listItems)
+      } catch (err) {
+        console.log(err.stack)
+      }
+    }
+
+    (async () => await fetchItems())()
+  }, [])
 
   const [newItem, setNewItem] = useState("")
   const [search, setSearch] = useState("")
