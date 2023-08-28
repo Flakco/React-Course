@@ -23,10 +23,7 @@ const FetchData = () => {
   }, [reqType]) // run everytime req changes
 
   return (
-    <div className='App'>
         <Form reqType={reqType} setReqType={setReqType} />
-
-    </div>
   )
 }
 
