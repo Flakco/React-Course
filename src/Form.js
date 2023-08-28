@@ -4,7 +4,7 @@ const Form = ({reqType, setReqType}) => {
   return (
     <form className="fetchButton" onSubmit={(e) => e.preventDefault()}>
         <Button buttonText="users" reqType={reqType} setReqType={setReqType}/>
-        <Button buttonText="post" reqType={reqType} setReqType={setReqType}/>
+        <Button buttonText="posts" reqType={reqType} setReqType={setReqType}/>
         <Button buttonText="comments" reqType={reqType} setReqType={setReqType}/>
     </form>
   )

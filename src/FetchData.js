@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import Form from './Form'
+import List from './List'
 
 const FetchData = () => {
   const API_URL = "https://jsonplaceholder.typicode.com/"
@@ -23,7 +24,10 @@ const FetchData = () => {
   }, [reqType]) // run everytime req changes
 
   return (
+    <>
         <Form reqType={reqType} setReqType={setReqType} />
+        <List data={data}/>
+    </>
   )
 }
 

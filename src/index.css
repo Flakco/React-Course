@@ -233,6 +233,7 @@ button:hover {
 .fetchButton {
   width: 100%;
   display: flex;
+  padding: 10px;
 }
 
 .fetchButton button {
@@ -245,5 +246,17 @@ button:hover {
   background-color: #000;
   color: #fff;
 }
+
+.dataUl {
+  padding: 3rem 2rem 1rem;
+  overflow-y: scroll;
+
+}
+
+.dataLi {
+  margin-bottom: 1rem;
+  font-size: 10px;
+}
+
 
 
