@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Form from './Form'
-import List from './List'
+import Table from './Table'
 
 const FetchData = () => {
   const API_URL = "https://jsonplaceholder.typicode.com/"
@@ -26,7 +26,7 @@ const FetchData = () => {
   return (
     <>
         <Form reqType={reqType} setReqType={setReqType} />
-        <List data={data}/>
+        <Table data={data}/>
     </>
   )
 }
