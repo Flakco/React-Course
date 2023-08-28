@@ -8,6 +8,7 @@ import SearchItem from "./SearchItem";
 import Square from "./Square";
 import Input from "./Input";
 import apiRequest from "./apiRequest";
+import FetchData from "./FetchData";
 
 function App() {
   const API_URL = "http://localhost:3500/items"
@@ -101,6 +102,7 @@ function App() {
   return (
     <div className="App">
       <Header className="App-header" title="Groceries List"/>
+      <FetchData/>
       <Square colorValue={colorValue} hexValue={hexValue} isDarkText={isDarkText}/>
       <Input colorValue={colorValue} setColorValue={setColorValue} setHexValue={setHexValue} isDarkText={isDarkText} setIsDarkText={setIsDarkText}/>
       <AddItem newItem={newItem} setNewItem={setNewItem} handleSubmit={handleSubmit}/>
